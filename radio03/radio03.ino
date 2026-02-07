@@ -1,3 +1,5 @@
+// Created by Rūdolfs Rutkovskis January 2026
+
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <EEPROM.h>
