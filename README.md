@@ -21,9 +21,13 @@
 
 Parts used:
   TEA5767 FM Stereo Radio Module 76-108MHZ With Free Cable Antenna
+
   PEC11R-4125F-S0018 Encoder + random plastic cap from old parts
+
   Arduino NANO V3.0 AVR ATMEGA328P Type C
+
   LCD1602 with I2C Interface
+  
   Box from scrap pieces
 
 ![Real](media/1.jpg)
