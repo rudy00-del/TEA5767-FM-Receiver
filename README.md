@@ -21,8 +21,8 @@
 
 ## 🎛 Encoder Navigation
 
-- 🔄 **Clockwise rotation** → Increase frequency (+0.1 MHz)
-- 🔁 **Counter-clockwise rotation** → Decrease frequency (−0.1 MHz)
+- 🔁 **Clockwise rotation** → Increase frequency (+0.1 MHz)
+- 🔄 **Counter-clockwise rotation** → Decrease frequency (−0.1 MHz)
 - 👆 **Short press** → Jump to next preset station
 - 👇 **Long press** → Jump to previous preset station
 
