@@ -96,18 +96,37 @@ void setup() {
 void loop() {
 
 static bool lastEncBtn = HIGH;
+static unsigned long pressStartTime = 0;
+
 bool encBtn = digitalRead(BTN_ENC);
 
-if (lastEncBtn == HIGH && encBtn == LOW) {   // button pressed
-  int next = findNextStationIndex(frequency);
+// Button pressed
+if (lastEncBtn == HIGH && encBtn == LOW) {
+  pressStartTime = millis();
+}
 
-  frequency = stations[next].freq;
+// Button released
+if (lastEncBtn == LOW && encBtn == HIGH) {
+  unsigned long pressDuration = millis() - pressStartTime;
+
+  int stationIndex;
+
+  if (pressDuration > 700) {
+    // LONG PRESS → previous station
+    stationIndex = findPreviousStationIndex(frequency);
+  } else {
+    // SHORT PRESS → next station
+    stationIndex = findNextStationIndex(frequency);
+  }
+
+  frequency = stations[stationIndex].freq;
 
   muted = true;
-  setFrequency(frequency);   // silent tune
+  setFrequency(frequency);
   showDisplay();
 
-  delay(80);                 // short mute
+  delay(80);  // short mute pop protection
+
   muted = false;
   setFrequency(frequency);
 
@@ -116,6 +135,7 @@ if (lastEncBtn == HIGH && encBtn == LOW) {   // button pressed
 }
 
 lastEncBtn = encBtn;
+
 
 
   aVal = digitalRead(BTN_UP);
@@ -171,6 +191,15 @@ int findNextStationIndex(float currentFreq) {
     }
   }
   return 0; // wrap around
+}
+
+int findPreviousStationIndex(float currentFreq) {
+  for (int i = stationCount - 1; i >= 0; i--) {
+    if (stations[i].freq < currentFreq - 0.05) {
+      return i;
+    }
+  }
+  return stationCount - 1; // wrap to last
 }
 
 

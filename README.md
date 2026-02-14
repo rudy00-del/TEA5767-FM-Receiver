@@ -19,6 +19,14 @@
 ✔ No I²C bus abuse
 
 
+## 🎛 Encoder Navigation
+
+- 🔄 **Clockwise rotation** → Increase frequency (+0.1 MHz)
+- 🔁 **Counter-clockwise rotation** → Decrease frequency (−0.1 MHz)
+- 👆 **Short press** → Jump to next preset station
+- 👇 **Long press** → Jump to previous preset station
+
+
 Parts used:
 
   ✅ TEA5767 FM Stereo Radio Module 76-108MHZ With Free Cable Antenna
